@@ -7,6 +7,7 @@ package Negociacion;
 import Negociacion.Obstaculos;
 import Negociacion.Polvo;
 import Objetos.objSalon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,20 +18,19 @@ public class Generador {
     private objSalon SALON = new objSalon();
     private Polvo polvo = new Polvo();
     private Obstaculos objetoMANAGE = new Obstaculos();
-    private Robot bot = new Robot();
+
    
-    public JPanel generarjuego(JPanel panel) {
+    public JLabel[][] generarjuego(JPanel panel) {
         panel = SALON.GenerateField(panel);
         polvo.generate();
-        objetoMANAGE.generate(polvo.getEspacios());
+        objetoMANAGE.generate(polvo.getPolvoEspacios());
         polvo.set(panel);
         objetoMANAGE.create(panel);
-        
-        return panel;
+        JLabel[][] salon = SALON.getSalon();
+        return salon;
     }
+   
     
     
-    public void comprobar() {
-        
-    }
+
 }

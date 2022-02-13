@@ -8,7 +8,9 @@ import Negociacion.Generador;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Negociacion.Imagenes;
-import Negociacion.Robot;
+import Negociacion.Obstaculos;
+import Negociacion.Polvo;
+
 
 /**
  *
@@ -18,16 +20,26 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     private static Thread seguidor;
     private int speed = 100;
     private String Mov = "";
-    private Robot rob = new Robot();
+    JLabel Robot;
+    private Imagenes cnts = new Imagenes();
     private Generador gen = new Generador();
+    private Polvo dts = new Polvo();
+    private Obstaculos objs = new Obstaculos();
     /**
      * Creates new form MainBoard
      */
     public SalonPrincipal() {
         initComponents();
         //jPanel1.setSize(500,500);
+        //GAMEBOARD = gen.generarjuego(jPanel1);
         gen.generarjuego(jPanel1);
-        rob.aparecer(jPanel1);
+        Robot = new JLabel();
+        //Robot.setLocation(jPanel1.getSize().width-100, jPanel1.getSize().height-100);
+        //Robot.setBounds(jPanel1.getSize().width-100, jPanel1.getSize().height-100, 100,100);
+        Robot.setBounds(-5, -20, 100,100);
+        Robot.setIcon(cnts.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/1.png"), 50, 50));
+        jPanel1.add(Robot, 1);
+
         this.seguidor = new Thread(this);
         
 
@@ -38,6 +50,53 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
        seguidor.start();
     }
 
+    public void Actualizar(Thread ct) {
+        if (ct == seguidor) {
+            dts.comprobar(Robot);
+            boolean game = objs.comprobarOBJ(Robot);
+            if (game) {
+                resetMovement();
+               
+            }
+        }
+        if (((Robot.getX()) <= -6) || ((Robot.getY()) <= -21) || ((Robot.getY()) >= 350) ) {
+           resetMovement();
+        }  
+    }
+    
+    public void setMovement(){
+        switch (Mov) {
+                 case "Izquierda": 
+                    Robot.setLocation(Robot.getX()-5, Robot.getY());
+                    break;
+                case "Arriba":
+                    Robot.setLocation(Robot.getX(),Robot.getY()-5);
+                    break;
+                case "Derecha":
+                    Robot.setLocation(Robot.getX()+5, Robot.getY());
+                    break;
+                case "Abajo":
+                    Robot.setLocation(Robot.getX(), Robot.getY()+5);
+                    break;
+             }
+    }
+    
+    public void resetMovement() {
+        switch (Mov) {
+                 case "Izquierda": 
+                     Mov = "Derecha";
+                     break;
+                case "Arriba":
+                    Mov = "Abajo";
+                    break;
+                case "Derecha":
+                    Mov = "Izquierda";
+                    break;
+                case "Abajo":
+                    Mov = "Arriba";
+                    break;
+             }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,8 +124,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,28 +201,21 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     public void run() {
          int limiteX = jPanel1.getSize().width;
          int limiteY = jPanel1.getSize().height;
-         int posX = rob.getX();
-         int posY = rob.getY();
+         
+  
+ 
          
          Thread CT = Thread.currentThread();
          
          while(CT == seguidor) {
-             switch (Mov) {
-                 case "Izquierda": 
-                    rob.setLocation(posX-5, posY);
-                    break;
-                case "Arriba":
-                    rob.setLocation(posX, posY-5);
-                    break;
-                case "Derecha":
-                    rob.setLocation(posX+5, posY);
-                    break;
-                case "Abajo":
-                    rob.setLocation(posX, posY+5);
-                    break;
-             }
+         int botX = Robot.getX();
+         int botY = Robot.getY();
+            Actualizar(CT);
+            setMovement();
+            System.out.println(limiteX + " y " + botX);
+            System.out.println(botX == -15);  
              try {
-                 Thread.sleep(speed);
+                 Thread.sleep(100);
              } catch (Exception e) {
              }
          }

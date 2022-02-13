@@ -5,6 +5,7 @@
 package Objetos;
 
 import Negociacion.Imagenes;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,32 +15,28 @@ import javax.swing.JPanel;
  * @author Cris
  */
 public class objSalon {
-    private int tamSalon = 8;
-    private JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
-    public int[] espacios = new int[new Double((getTamSalon()*getTamSalon())*0.50).intValue()];
-    public int[] obstaculos = new int[new Double((getTamSalon()*getTamSalon())*0.15).intValue()];
-    //private objPolvo polvo = new objPolvo();
-   // private objObstaculos objeto = new objObstaculos();
-    private objRobot robot = new objRobot();
+    private static int tamSalon = 8;
+    private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
+    public static ArrayList<Integer> espacios = new ArrayList();
+    public static ArrayList<Integer> obstaculos = new ArrayList();
+
     private Imagenes controlIMG = new Imagenes();
     
-    public JPanel GenerateField(JPanel panel) {
+    
+    
+    public JPanel GenerateField(JPanel panel) { //Genera una matriz de labol para el salon y devuelve un panel con los objetos agregados
         panel.setLayout(null);
-        //polvo.GenerateDust();
-        //objeto.GenerateObject(espacios);
         for (int i = 0; i < salon[0].length; i++) {
             for (int j = 0; j < salon.length; j++) {
                 panel = setLabel(j, i, panel, "Blank");
             }
         }
-
-        //robot.iniciar();
-        
+   
         return panel;
        
     }
     
-    public int[] getIndex(int num) {
+    public int[] getIndex(int num) { //Obtiene el indice dentro de la matriz de un objeto en pantalla
         int[] index = new int[2];
         int uno = 0;
         for (int i = 0; i < salon[0].length; i++) {
@@ -59,7 +56,7 @@ public class objSalon {
         return index;
     }
     
-    public JPanel setLabel(int x, int y, JPanel panel, String status) {
+    public JPanel setLabel(int x, int y, JPanel panel, String status) { //Coloca los label eb el panel de juego
         salon[x][y] = new JLabel();
         switch(status){
             case "Blank":
@@ -81,32 +78,34 @@ public class objSalon {
         return panel;
     }
 
-    public int getTamSalon() {
+    public  static int getTamSalon() { //obtiene el tamano de la matriz
         return tamSalon;
     }
 
-    public JLabel[][] getSalon() {
+    
+    
+    public JLabel[][] getSalon() { //Obtiene la matriz del salon
         return salon;
     }
 
-    public void setTamSalon(int tamSalon) {
+    public void setTamSalon(int tamSalon) { //Modifica el tamano del juego (No usado)
         this.tamSalon = tamSalon;
     }
 
-    public int[] getEspacios() {
+    public ArrayList<Integer> getEspacios() { //Obtiene los espacion ocupados por el polvo
         return espacios;
     }
 
-    public int[] getObstaculos() {
+    public ArrayList<Integer>  getObstaculos() { //Obtiene los espacios ocupaos por los obstaculos
         return obstaculos;
     }
 
-    public void setEspacios(int i, int valor) {
-        this.espacios[i] = valor;
+    public void setEspacios(int i, int valor) { //Guarda los espacios ocupados por polvo
+        this.espacios.add(i, valor);
     }
 
-    public void setObstaculos(int i, int valor) {
-        this.obstaculos[i] = valor;
+    public void setObstaculos(int i, int valor) { //Guarda los espacios ocupados por los objetos
+        this.obstaculos.add(i, valor);
     }
     
     

@@ -5,6 +5,8 @@
 package Objetos;
 
 import Negociacion.Imagenes;
+import Presentacion.SalonPrincipal;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -17,38 +19,45 @@ import javax.swing.JPanel;
 public class objPolvo extends objSalon {
     
     public objPolvo(){
-        
+        super();
     }
     
     private Imagenes controlIMG = new Imagenes();
     
-    public void GenerateDust() {
-        int[] array = getEspacios();
-        for (int i = 0; i < array.length; i++) {
+    public void GenerateDust() { //Gennera los espacion que ocupara el polvo
+        ArrayList<Integer> array = getEspacios();
+        int esp = new Double((getTamSalon()*getTamSalon())*0.50).intValue();
+        for (int i = 0; i < esp; i++) {
         boolean newNum = true;
         int rand = 0;
         while(newNum == true) {
-            rand = new Random().nextInt((getTamSalon()*getTamSalon()) - 0 + 1) + 0;
+            rand = new Random().nextInt(((getTamSalon()*getTamSalon()) - 1) + 1) + 1;
             newNum = comprobarARR(rand, array);
         }
-            setEspacios(i, rand);
+            super.setEspacios(i, rand);
         }  
     }
     
-    public void setDust(JPanel panel){
-        for (int i = 0; i < getEspacios().length; i++) {
-            int[] indice = getIndex(getEspacios()[i]);
+    public void setDust(JPanel panel){ //coloca el polvo en la matriz
+        for (int i = 0; i < getEspacios().size(); i++) {
+            int[] indice = getIndex((int)getEspacios().get(i));
             setLabel(indice[0], indice[1], panel, "Dust");
         }
     }
     
-    private boolean comprobarARR(int num, int[] list) {
-        for (int i = 0; i < list.length; i++) {
-             int espacio = list[i];
+    public void changeDust( int[] indice){ //elimina el polvo de la matriz
+        getSalon()[indice[0]][indice[1]].setIcon(null);
+    }
+    
+    private boolean comprobarARR(int num, ArrayList<Integer> list) { //Se asegura de no repetir los espacios del polvo
+        for (int i = 0; i < list.size(); i++) {
+             int espacio = list.get(i);
             if(espacio == num) {
                 return true;
             }
         }
         return false;
     }
+    
+
 }
