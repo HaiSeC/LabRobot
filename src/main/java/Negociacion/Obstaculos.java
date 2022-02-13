@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  */
 public class Obstaculos {
     private objObstaculos objeto = new objObstaculos();
-
+    private Negociacion.sonido sound = new Negociacion.sonido();
     public void generate(ArrayList<Integer> arr) { //llama la funcion que genera los obstaculos
         objeto.GenerateObject(arr);
     }
@@ -44,11 +44,12 @@ public class Obstaculos {
                int botY = bot.getY(); //System.out.println((botX > x-10 && botX < x+10) && (botY > y-40 && botY < y));
                if ((botX > x-20 && botX < x+20) && (botY > y-40 && botY < y)) {
                    System.out.println("has chocado");
+                   sound.ReproducirSonidono();
                    return true;
                    
             }
             
-        }
-        return false;
+        }       
+        return false;       
     }
 }
