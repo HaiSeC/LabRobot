@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import Negociacion.Imagenes;
 import Negociacion.Obstaculos;
 import Negociacion.Polvo;
+import Negociacion.sonido;
 
 
 /**
@@ -25,6 +26,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     private Generador gen = new Generador();
     private Polvo dts = new Polvo();
     private Obstaculos objs = new Obstaculos();
+    private sonido snd = new sonido();
     /**
      * Creates new form MainBoard
      */
@@ -37,7 +39,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
         //Robot.setLocation(jPanel1.getSize().width-100, jPanel1.getSize().height-100);
         //Robot.setBounds(jPanel1.getSize().width-100, jPanel1.getSize().height-100, 100,100);
         Robot.setBounds(-5, -20, 100,100);
-        Robot.setIcon(cnts.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/1.png"), 50, 50));
+        Robot.setIcon(cnts.getScaledImage(new ImageIcon(".\\1.png"), 50, 50));
         jPanel1.add(Robot, 1);
 
         this.seguidor = new Thread(this);
@@ -59,24 +61,25 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
                
             }
         }
-        if (((Robot.getX()) <= -6) || ((Robot.getY()) <= -21) || ((Robot.getY()) >= 350) ) {
-           resetMovement();
+        if (((Robot.getX()) <= -10) || ((Robot.getY()) <= -30) || ((Robot.getY()) >= 350) || ((Robot.getX()) >= 370) ) {
+            snd.ReproducirSonidono();
+            resetMovement();
         }  
     }
     
     public void setMovement(){
         switch (Mov) {
                  case "Izquierda": 
-                    Robot.setLocation(Robot.getX()-5, Robot.getY());
+                    Robot.setLocation(Robot.getX()-10, Robot.getY());
                     break;
                 case "Arriba":
-                    Robot.setLocation(Robot.getX(),Robot.getY()-5);
+                    Robot.setLocation(Robot.getX(),Robot.getY()-10);
                     break;
                 case "Derecha":
-                    Robot.setLocation(Robot.getX()+5, Robot.getY());
+                    Robot.setLocation(Robot.getX()+10, Robot.getY());
                     break;
                 case "Abajo":
-                    Robot.setLocation(Robot.getX(), Robot.getY()+5);
+                    Robot.setLocation(Robot.getX(), Robot.getY()+10);
                     break;
              }
     }
@@ -212,8 +215,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
          int botY = Robot.getY();
             Actualizar(CT);
             setMovement();
-            System.out.println(limiteX + " y " + botX);
-            System.out.println(botX == -15);  
              try {
                  Thread.sleep(100);
              } catch (Exception e) {

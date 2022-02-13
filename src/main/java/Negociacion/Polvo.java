@@ -16,6 +16,7 @@ import javax.swing.JPanel;
  */
 public class Polvo {
         private final objPolvo polvo = new objPolvo();
+        private sonido sound = new sonido();
         
         public void generate(){//Llama a la funcion que genera el polvo
             polvo.GenerateDust();
@@ -44,9 +45,12 @@ public class Polvo {
                int botX = bot.getX();
                int botY = bot.getY(); //System.out.println((botX > x-10 && botX < x+10) && (botY > y-40 && botY < y));
                if ((botX > x-20 && botX < x+20) && (botY > y-40 && botY < y)) {
+         
                    System.out.println("delete: bot:" + bot.getY() + " dust: " + y);
+                   polvo.setLimpio(indice);
+                   sound.ReproducirSonidook();
                    polvo.changeDust(indice);
-                   
+                   polvo.deleteEspacio(i);
             }
             
         }

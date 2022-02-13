@@ -19,6 +19,7 @@ public class objSalon {
     private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
     public static ArrayList<Integer> espacios = new ArrayList();
     public static ArrayList<Integer> obstaculos = new ArrayList();
+    public static ArrayList<int[]> limpiados = new ArrayList<>();
 
     private Imagenes controlIMG = new Imagenes();
     
@@ -42,7 +43,6 @@ public class objSalon {
         for (int i = 0; i < salon[0].length; i++) {
             for (int j = 0; j < salon.length; j++) {
                 int dos = j;
-
                 int k = uno+dos;
                 if (num == k) {
                     index[0] = i;
@@ -108,6 +108,13 @@ public class objSalon {
         this.obstaculos.add(i, valor);
     }
     
+    public void setLimpio(int[] Index) {
+        this.limpiados.add(Index);
+    }
+    
+    public void deleteEspacio(int indx) {
+        this.espacios.remove(indx);
+    }
     
     
 }

@@ -31,16 +31,16 @@ public class objPolvo extends objSalon {
         boolean newNum = true;
         int rand = 0;
         while(newNum == true) {
-            rand = new Random().nextInt(((getTamSalon()*getTamSalon()) - 1) + 1) + 1;
+            rand = new Random().nextInt((((getTamSalon()*getTamSalon())-1) - 1) + 1) + 1;
             newNum = comprobarARR(rand, array);
         }
-            super.setEspacios(i, rand);
+            setEspacios(i, rand);
         }  
     }
     
     public void setDust(JPanel panel){ //coloca el polvo en la matriz
         for (int i = 0; i < getEspacios().size(); i++) {
-            int[] indice = getIndex((int)getEspacios().get(i));
+            int[] indice = getIndex(getEspacios().get(i));
             setLabel(indice[0], indice[1], panel, "Dust");
         }
     }

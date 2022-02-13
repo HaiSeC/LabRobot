@@ -25,7 +25,7 @@ public class objObstaculos extends objSalon{
             boolean newNum = true;
             int rand = 0;
             while(newNum == true) {
-                rand = new Random().nextInt(((getTamSalon()*getTamSalon()) - 1) + 1) + 1;
+                rand = new Random().nextInt((((getTamSalon()*getTamSalon())-1) - 1) + 1) + 1;
                 newNum = comprobarA(rand, array, list);
         }
             setObstaculos(i, rand);
