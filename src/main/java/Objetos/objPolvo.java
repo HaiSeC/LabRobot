@@ -26,12 +26,15 @@ public class objPolvo extends objSalon {
     
     public void GenerateDust() { //Gennera los espacion que ocupara el polvo
         ArrayList<Integer> array = getEspacios();
-        int esp = new Double((getTamSalon()*getTamSalon())*0.50).intValue();
+        int max=getTamSalon()*getTamSalon();
+        int min = 8;
+        int esp = new Double(max*0.50).intValue();
         for (int i = 0; i < esp; i++) {
         boolean newNum = true;
         int rand = 0;
         while(newNum == true) {
-            rand = new Random().nextInt((((getTamSalon()*getTamSalon())-1) - 1) + 1) + 1;
+            rand = new Random().nextInt(max - min) + min;
+            //rand = (int) ((Math.random() * ((getTamSalon()*getTamSalon()) - 3)) + 2);
             newNum = comprobarARR(rand, array);
         }
             setEspacios(i, rand);

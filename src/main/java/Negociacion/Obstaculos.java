@@ -28,7 +28,7 @@ public class Obstaculos {
             return objeto.getObstaculos();
             
         }
-    
+    /*
             public boolean comprobarOBJ(JLabel bot) { //comprueba si el bot pasa por el polvo
         ArrayList<Integer> list1;
             
@@ -42,7 +42,7 @@ public class Obstaculos {
                int x = label.getX();
                int botX = bot.getX();
                int botY = bot.getY(); //System.out.println((botX > x-10 && botX < x+10) && (botY > y-40 && botY < y));
-               if ((botX > x-20 && botX < x+20) && (botY > y-40 && botY < y)) {
+               if ((botX > x-25 && botX < x+25) && (botY > y-50 && botY < y)) {
                    System.out.println("has chocado");
                    sound.ReproducirSonidono();
                    return true;
@@ -51,5 +51,5 @@ public class Obstaculos {
             
         }       
         return false;       
-    }
+    }*/
 }

@@ -5,6 +5,7 @@
 package Objetos;
 
 import Negociacion.Imagenes;
+import Negociacion.sonido;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,7 +21,7 @@ public class objSalon {
     public static ArrayList<Integer> espacios = new ArrayList();
     public static ArrayList<Integer> obstaculos = new ArrayList();
     public static ArrayList<int[]> limpiados = new ArrayList<>();
-
+    private sonido sound = new sonido();
     private Imagenes controlIMG = new Imagenes();
     
     
@@ -77,6 +78,8 @@ public class objSalon {
         
         return panel;
     }
+    
+
 
     public  static int getTamSalon() { //obtiene el tamano de la matriz
         return tamSalon;

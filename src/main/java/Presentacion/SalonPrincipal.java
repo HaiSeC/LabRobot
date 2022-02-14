@@ -54,8 +54,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
 
     public void Actualizar(Thread ct) {
         if (ct == seguidor) {
-            dts.comprobar(Robot);
-            boolean game = objs.comprobarOBJ(Robot);
+            gen.comprobar(Robot, "Polvo");
+            boolean game = gen.comprobar(Robot, "Obstaculos");
             if (game) {
                 resetMovement();
                
@@ -81,24 +81,33 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
                 case "Abajo":
                     Robot.setLocation(Robot.getX(), Robot.getY()+10);
                     break;
+                    
+                case "Quieto":
+                    Robot.setLocation(Robot.getX(), Robot.getY());
+                    break;
              }
     }
     
     public void resetMovement() {
         switch (Mov) {
                  case "Izquierda": 
-                     Mov = "Derecha";
+                     Robot.setLocation(Robot.getX()+12, Robot.getY());
+                     Mov = "Quieto";
                      break;
                 case "Arriba":
-                    Mov = "Abajo";
+                    Robot.setLocation(Robot.getX(),Robot.getY()+12);
+                     Mov = "Quieto";
                     break;
                 case "Derecha":
-                    Mov = "Izquierda";
+                    Robot.setLocation(Robot.getX()-12, Robot.getY());
+                     Mov = "Quieto";
                     break;
                 case "Abajo":
-                    Mov = "Arriba";
+                    Robot.setLocation(Robot.getX(), Robot.getY()-12);
+                    Mov = "Quieto";
                     break;
              }
+        Robot.setLocation(Robot.getX(), Robot.getY());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -216,7 +225,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
             Actualizar(CT);
             setMovement();
              try {
-                 Thread.sleep(100);
+                 Thread.sleep(85);
              } catch (Exception e) {
              }
          }

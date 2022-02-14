@@ -20,13 +20,15 @@ public class objObstaculos extends objSalon{
     
         public void GenerateObject(ArrayList<Integer> list) { //genera los obtaculos
         ArrayList<Integer> array = getObstaculos();
+        int max=getTamSalon()*getTamSalon();
+        int min = 9;
         int esp = new Double((getTamSalon()*getTamSalon())*0.15).intValue();
         for (int i = 0; i < esp; i++) {
             boolean newNum = true;
             int rand = 0;
             while(newNum == true) {
-                rand = new Random().nextInt((((getTamSalon()*getTamSalon())-1) - 1) + 1) + 1;
-                newNum = comprobarA(rand, array, list);
+            rand = new Random().nextInt(max - min) + min;
+            newNum = comprobarA(rand, array, list);
         }
             setObstaculos(i, rand);
         }  
