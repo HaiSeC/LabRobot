@@ -206,3 +206,203 @@ Espacios con Obstaculos: 21, 22, 35, 51, 13, 58, 15, 26, 32
 Cantidad de posiciones Recorridas: 
 Cantidad de Posiciones Limpias: 32
 Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 10:50:59
+Espacios Limpiados: 
+Lista de Espacios Sucios: 16, 36, 33, 53, 21, 26, 51, 61, 45, 37, 39, 59, 23, 32, 47, 10, 9, 8, 62, 48, 54, 63, 43, 28, 50, 34, 19, 11, 24, 55, 31, 40
+Espacios con Obstaculos: 44, 49, 42, 38, 29, 17, 27, 52, 46
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 10:56:57
+Espacios Limpiados: 
+Lista de Espacios Sucios: 57, 59, 9, 47, 30, 15, 52, 55, 53, 29, 43, 61, 37, 49, 16, 12, 27, 17, 50, 20, 31, 60, 58, 35, 11, 41, 39, 48, 18, 62, 23, 13
+Espacios con Obstaculos: 51, 36, 42, 38, 63, 34, 45, 40, 28
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 10:58:53
+Espacios Limpiados: 
+Lista de Espacios Sucios: 13, 59, 47, 51, 53, 41, 58, 44, 25, 43, 50, 19, 10, 24, 29, 20, 38, 56, 46, 12, 48, 21, 28, 37, 34, 63, 54, 62, 30, 61, 31, 55
+Espacios con Obstaculos: 60, 14, 40, 18, 42, 22, 15, 27, 33
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 11:00:22
+Espacios Limpiados: 
+Lista de Espacios Sucios: 45, 9, 34, 48, 44, 46, 8, 61, 43, 38, 41, 22, 28, 32, 23, 59, 17, 27, 50, 62, 36, 29, 13, 25, 42, 39, 54, 30, 14, 16, 47, 11
+Espacios con Obstaculos: 63, 10, 58, 40, 35, 37, 15, 49, 56
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 11:57:33
+Espacios Limpiados: 
+Lista de Espacios Sucios: 20, 48, 16, 41, 60, 44, 62, 38, 30, 45, 28, 35, 59, 52, 63, 36, 11, 12, 49, 61, 34, 56, 53, 31, 27, 46, 10, 14, 57, 19, 32, 17
+Espacios con Obstaculos: 18, 23, 50, 13, 42, 21, 22, 40, 47
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 11:58:00
+Espacios Limpiados: 
+Lista de Espacios Sucios: 34, 61, 35, 40, 21, 20, 63, 14, 62, 57, 59, 52, 9, 54, 8, 31, 19, 60, 26, 33, 10, 48, 28, 17, 53, 32, 49, 25, 29, 13, 58, 22
+Espacios con Obstaculos: 42, 12, 30, 41, 45, 50, 18, 11, 46
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:01:01
+Espacios Limpiados: 
+Lista de Espacios Sucios: 19, 63, 11, 51, 62, 32, 36, 24, 35, 45, 37, 61, 28, 29, 40, 38, 52, 25, 47, 56, 46, 23, 21, 8, 41, 48, 34, 43, 39, 9, 15, 27
+Espacios con Obstaculos: 50, 54, 26, 58, 13, 22, 53, 14, 18
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:01:08
+Espacios Limpiados: 
+Lista de Espacios Sucios: 46, 47, 57, 22, 60, 59, 43, 63, 12, 45, 52, 21, 33, 39, 35, 17, 41, 55, 16, 20, 26, 58, 53, 32, 15, 30, 61, 38, 14, 34, 51, 28
+Espacios con Obstaculos: 37, 23, 40, 18, 49, 24, 10, 31, 50
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:06:56
+Espacios Limpiados: 
+Lista de Espacios Sucios: 13, 38, 39, 21, 27, 33, 26, 41, 12, 59, 44, 55, 24, 45, 56, 9, 15, 42, 50, 16, 22, 54, 48, 60, 47, 46, 51, 31, 17, 20, 35, 14
+Espacios con Obstaculos: 58, 61, 43, 32, 53, 36, 10, 34, 28
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:10:06
+Espacios Limpiados: 
+Lista de Espacios Sucios: 41, 34, 51, 19, 9, 29, 13, 14, 49, 24, 33, 50, 23, 32, 31, 46, 44, 11, 40, 47, 22, 38, 48, 57, 12, 55, 18, 39, 21, 25, 28, 52
+Espacios con Obstaculos: 10, 17, 26, 36, 59, 35, 61, 15, 37
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:10:17
+Espacios Limpiados: 
+Lista de Espacios Sucios: 42, 60, 62, 17, 50, 8, 20, 36, 49, 51, 33, 14, 46, 43, 47, 40, 35, 13, 57, 24, 29, 12, 26, 32, 28, 53, 58, 10, 25, 61, 41, 54
+Espacios con Obstaculos: 31, 23, 34, 27, 22, 44, 56, 15, 38
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:14:26
+Espacios Limpiados: 
+Lista de Espacios Sucios: 51, 36, 25, 59, 18, 15, 41, 16, 33, 35, 14, 24, 31, 54, 63, 57, 8, 46, 12, 26, 27, 9, 22, 43, 28, 20, 19, 38, 44, 21, 50, 29
+Espacios con Obstaculos: 49, 52, 55, 37, 11, 40, 53, 42, 60
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:15:51
+Espacios Limpiados: 
+Lista de Espacios Sucios: 33, 39, 45, 15, 44, 54, 34, 14, 22, 43, 51, 47, 41, 61, 13, 62, 23, 40, 9, 63, 24, 30, 53, 60, 27, 50, 52, 32, 35, 57, 16, 20
+Espacios con Obstaculos: 37, 58, 29, 10, 11, 28, 12, 19, 38
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:19:12
+Espacios Limpiados: 
+Lista de Espacios Sucios: 50, 23, 57, 56, 49, 61, 46, 36, 51, 15, 54, 44, 12, 32, 18, 33, 55, 63, 13, 43, 60, 19, 26, 52, 10, 22, 16, 30, 20, 45, 21, 29
+Espacios con Obstaculos: 35, 40, 34, 31, 25, 14, 41, 53, 24
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:20:16
+Espacios Limpiados: 
+Lista de Espacios Sucios: 44, 10, 39, 42, 45, 62, 35, 51, 58, 18, 26, 37, 38, 61, 19, 29, 49, 31, 43, 41, 36, 48, 30, 56, 40, 28, 60, 8, 50, 32, 24, 47
+Espacios con Obstaculos: 20, 17, 59, 54, 14, 55, 13, 16, 9
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:20:50
+Espacios Limpiados: 
+Lista de Espacios Sucios: 49, 22, 44, 56, 18, 42, 20, 13, 48, 58, 40, 26, 57, 25, 41, 52, 21, 16, 63, 47, 8, 39, 51, 33, 14, 24, 59, 30, 62, 10, 50, 17
+Espacios con Obstaculos: 12, 9, 46, 28, 34, 32, 15, 27, 11
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:22:37
+Espacios Limpiados: 
+Lista de Espacios Sucios: 39, 20, 31, 42, 45, 43, 12, 61, 8, 49, 62, 16, 17, 36, 52, 37, 26, 38, 15, 58, 10, 21, 56, 19, 33, 53, 13, 23, 18, 57, 27, 35
+Espacios con Obstaculos: 41, 9, 30, 44, 14, 51, 63, 29, 46
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:25:16
+Espacios Limpiados: 
+Lista de Espacios Sucios: 13, 53, 57, 11, 18, 47, 46, 14, 27, 8, 32, 20, 28, 50, 25, 9, 26, 62, 59, 33, 48, 21, 60, 54, 39, 30, 23, 45, 19, 58, 61, 10
+Espacios con Obstaculos: 36, 49, 55, 22, 31, 43, 29, 35, 12
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:26:10
+Espacios Limpiados: 
+Lista de Espacios Sucios: 57, 28, 22, 38, 17, 8, 35, 53, 44, 25, 26, 37, 21, 12, 47, 13, 61, 11, 18, 14, 49, 39, 42, 48, 20, 15, 30, 43, 32, 19, 60, 41
+Espacios con Obstaculos: 27, 54, 40, 46, 52, 34, 50, 29, 45
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:26:55
+Espacios Limpiados: 
+Lista de Espacios Sucios: 13, 40, 18, 43, 44, 24, 59, 41, 21, 10, 20, 52, 31, 62, 46, 50, 37, 32, 25, 35, 22, 28, 12, 45, 38, 34, 30, 19, 57, 48, 56, 63
+Espacios con Obstaculos: 36, 53, 23, 26, 60, 42, 17, 9, 14
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:28:51
+Espacios Limpiados: 
+Lista de Espacios Sucios: 55, 30, 58, 47, 12, 62, 50, 27, 26, 41, 31, 48, 35, 43, 38, 22, 15, 39, 56, 23, 42, 49, 52, 11, 13, 37, 14, 63, 32, 59, 18, 8
+Espacios con Obstaculos: 25, 61, 34, 53, 46, 20, 57, 10, 44
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:29:45
+Espacios Limpiados: 
+Lista de Espacios Sucios: 52, 42, 63, 9, 20, 55, 36, 53, 60, 48, 15, 62, 54, 21, 49, 12, 27, 24, 8, 45, 47, 38, 46, 51, 30, 26, 29, 44, 61, 19, 40, 50
+Espacios con Obstaculos: 22, 39, 28, 32, 11, 31, 57, 10, 18
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:32:07
+Espacios Limpiados: 
+Lista de Espacios Sucios: 54, 42, 49, 8, 9, 22, 32, 40, 63, 19, 43, 45, 11, 26, 57, 37, 25, 10, 51, 33, 62, 46, 44, 47, 16, 53, 35, 23, 39, 14, 29, 20
+Espacios con Obstaculos: 21, 52, 17, 60, 61, 56, 58, 30, 27
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:33:56
+Espacios Limpiados: 
+Lista de Espacios Sucios: 39, 13, 30, 45, 23, 49, 32, 43, 31, 51, 25, 19, 46, 63, 28, 50, 11, 62, 35, 60, 27, 47, 20, 16, 17, 24, 18, 55, 34, 40, 15, 41
+Espacios con Obstaculos: 37, 12, 36, 21, 44, 33, 14, 54, 10
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 
+<------------------->
+Fecha: 14 feb. 2022 12:36:59
+Espacios Limpiados: 
+Lista de Espacios Sucios: 51, 39, 19, 46, 24, 49, 40, 20, 21, 56, 8, 23, 44, 52, 50, 34, 55, 13, 17, 28, 43, 22, 62, 41, 18, 48, 59, 27, 33, 11, 30, 12
+Espacios con Obstaculos: 42, 53, 29, 61, 58, 38, 10, 9, 14
+Cantidad de posiciones Recorridas: 
+Cantidad de Posiciones Limpias: 32
+Porcentaje de Espacios Sucios en el salón: 

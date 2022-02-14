@@ -7,6 +7,7 @@ package Objetos;
 import Negociacion.Imagenes;
 import Negociacion.sonido;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -165,7 +166,7 @@ public class objSalon {
                         data.setPorEspDir(perString);       
     }
     
-    public static void setNivelPolvo(float per) {
+    public static void setNivelPolvo(int per) {
         percentaje = per;
     }
 
@@ -175,6 +176,19 @@ public class objSalon {
 
     public static float getPercentaje() {
         return percentaje;
+    }
+    
+    public boolean comprobarExis(int[] valor) {
+        for (int i = 0; i < recorridos.size(); i++) {
+            int[] j = recorridos.get(i);
+           
+            if(j[0] == valor[0] && j[1] == valor[1]) {
+                //System.out.println(Arrays.toString(j) + recorridos.size());
+                return false;
+            }
+        }
+        
+        return true;
     }
     
 }

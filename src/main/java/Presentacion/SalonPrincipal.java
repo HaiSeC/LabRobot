@@ -25,6 +25,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     private static Thread seguidor;
     private int speed = 100;
     private String Mov = "";
+    private String MovPers = " ";
     JLabel Robot;
     private Imagenes cnts = new Imagenes();
     private Generador gen = new Generador();
@@ -33,6 +34,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     private sonido snd = new sonido();
     private objSalon SC = new objSalon();
     private Archivos save = new Archivos();
+    private static boolean juego = false;
     /**
      * Creates new form MainBoard
      */
@@ -53,7 +55,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         SC.saveObs();
         SC.saveCleaned();
         save.guardarDatos();
-        Empezar();
+        
     }
     
     public static void Empezar() {
@@ -62,13 +64,17 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
 
     public void Actualizar(Thread ct) {
         if (ct == seguidor) {
-            gen.comprobar(Robot, "Salon");
+            int porcentaje = gen.CheckPolvo();
+            JLprc.setText(String.valueOf(porcentaje) + "%");
+            gen. getPosition(Robot, Mov, MovPers);
+            MovPers = Mov;
             gen.comprobar(Robot, "Polvo");
             boolean game = gen.comprobar(Robot, "Obstaculos");
             if (game) {
                 resetMovement();
                
             }
+            
         }
         if (((Robot.getX()) <= -10) || ((Robot.getY()) <= -30) || ((Robot.getY()) >= 350) || ((Robot.getX()) >= 370) ) {
             snd.ReproducirSonidono();
@@ -128,6 +134,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        JLprc = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -139,6 +146,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(null);
 
+        JLprc.setText("label1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,13 +155,19 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(496, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -160,7 +175,11 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-                       switch (evt.getKeyCode()) {
+        if(!juego) {
+            Empezar();
+            juego = true;
+        }               
+        switch (evt.getKeyCode()) {
                 
                 case 37:
                     Mov = "Izquierda"; 
@@ -215,6 +234,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label JLprc;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
