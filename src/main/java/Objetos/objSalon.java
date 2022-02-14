@@ -21,6 +21,7 @@ public class objSalon {
     private String listEsCleaned = "";
     private String listObs = "";
     private String listEsRecord = "";
+    private String perString = "";
     private Datos.Archivos data = new Datos.Archivos();    
     private static int tamSalon = 8;
     private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
@@ -159,10 +160,21 @@ public class objSalon {
            listObs = obstaculos.stream().map(Object::toString).collect(Collectors.joining(", "));
                         data.setListEsObs(listObs);       
     }
+    public void savePer(){
+           perString = String.valueOf(percentaje);
+                        data.setPorEspDir(perString);       
+    }
     
-    public void setNivelPolvo(float per) {
-        this.percentaje = per;
-        data.setPorEspDir(String.valueOf(percentaje));
+    public static void setNivelPolvo(float per) {
+        percentaje = per;
+    }
+
+    public static ArrayList<int[]> getRecorridos() {
+        return recorridos;
+    }
+
+    public static float getPercentaje() {
+        return percentaje;
     }
     
 }
