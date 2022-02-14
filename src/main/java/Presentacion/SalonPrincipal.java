@@ -11,13 +11,17 @@ import Negociacion.Imagenes;
 import Negociacion.Obstaculos;
 import Negociacion.Polvo;
 import Negociacion.sonido;
+import Objetos.objSalon;
+import Datos.Archivos;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 /**
  *
  * @author Cris
  */
-public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
+public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyListener {
     private static Thread seguidor;
     private int speed = 100;
     private String Mov = "";
@@ -27,6 +31,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     private Polvo dts = new Polvo();
     private Obstaculos objs = new Obstaculos();
     private sonido snd = new sonido();
+    private objSalon SC = new objSalon();
+    private Archivos save = new Archivos();
     /**
      * Creates new form MainBoard
      */
@@ -43,17 +49,20 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
         jPanel1.add(Robot, 1);
 
         this.seguidor = new Thread(this);
-        
-
-
+        SC.saveDirty();
+        SC.saveObs();
+        SC.saveCleaned();
+        save.guardarDatos();
+        Empezar();
     }
     
     public static void Empezar() {
-       seguidor.start();
+       seguidor.start();       
     }
 
     public void Actualizar(Thread ct) {
         if (ct == seguidor) {
+            gen.comprobar(Robot, "Salon");
             gen.comprobar(Robot, "Polvo");
             boolean game = gen.comprobar(Robot, "Obstaculos");
             if (game) {
@@ -91,23 +100,23 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     public void resetMovement() {
         switch (Mov) {
                  case "Izquierda": 
-                     Robot.setLocation(Robot.getX()+12, Robot.getY());
+                     Robot.setLocation(Robot.getX()+15, Robot.getY());
                      Mov = "Quieto";
                      break;
                 case "Arriba":
-                    Robot.setLocation(Robot.getX(),Robot.getY()+12);
+                    Robot.setLocation(Robot.getX(),Robot.getY()+15);
                      Mov = "Quieto";
                     break;
                 case "Derecha":
-                    Robot.setLocation(Robot.getX()-12, Robot.getY());
+                    Robot.setLocation(Robot.getX()-15, Robot.getY());
                      Mov = "Quieto";
                     break;
                 case "Abajo":
-                    Robot.setLocation(Robot.getX(), Robot.getY()-12);
+                    Robot.setLocation(Robot.getX(), Robot.getY()-15);
                     Mov = "Quieto";
                     break;
              }
-        Robot.setLocation(Robot.getX(), Robot.getY());
+        //Robot.setLocation(Robot.getX(), Robot.getY());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -200,7 +209,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SalonPrincipal().setVisible(true);
-                Empezar();
+                //Empezar();
             }
         });
     }
@@ -225,9 +234,26 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
             Actualizar(CT);
             setMovement();
              try {
-                 Thread.sleep(85);
+                 Thread.sleep(90);
              } catch (Exception e) {
              }
          }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
 }

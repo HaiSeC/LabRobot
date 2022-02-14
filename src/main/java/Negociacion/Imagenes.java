@@ -5,6 +5,7 @@
 package Negociacion;
 
 import java.awt.Image;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -21,6 +22,8 @@ public class Imagenes {
 
     return srcImg;
 }
+
+
     
     
 }

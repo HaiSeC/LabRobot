@@ -7,6 +7,7 @@ package Objetos;
 import Negociacion.Imagenes;
 import Negociacion.sonido;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,11 +17,18 @@ import javax.swing.JPanel;
  * @author Cris
  */
 public class objSalon {
+    private String listEsDr = "";
+    private String listEsCleaned = "";
+    private String listObs = "";
+    private String listEsRecord = "";
+    private Datos.Archivos data = new Datos.Archivos();    
     private static int tamSalon = 8;
     private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
     public static ArrayList<Integer> espacios = new ArrayList();
     public static ArrayList<Integer> obstaculos = new ArrayList();
     public static ArrayList<int[]> limpiados = new ArrayList<>();
+    public static ArrayList<int[]> recorridos = new ArrayList<>();
+    public static float percentaje;
     private sonido sound = new sonido();
     private Imagenes controlIMG = new Imagenes();
     
@@ -65,11 +73,13 @@ public class objSalon {
                 break;
             
             case "Dust":
-                salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/dust.png"), 50, 50));
+                //salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/dust.png"), 50, 50));
+                salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("dust.png"), 50, 50));
                 break;
                 
             case "Object":
-                salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/obstacle.png"), 50, 50));
+                //salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/obstacle.png"), 50, 50));
+                salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("obstacle.png"), 50, 50));
                 break;
         }
         
@@ -78,8 +88,6 @@ public class objSalon {
         
         return panel;
     }
-    
-
 
     public  static int getTamSalon() { //obtiene el tamano de la matriz
         return tamSalon;
@@ -111,6 +119,10 @@ public class objSalon {
         this.obstaculos.add(i, valor);
     }
     
+    public void setLugar(int[] valor){
+        this.recorridos.add(valor);
+    }
+    
     public void setLimpio(int[] Index) {
         this.limpiados.add(Index);
     }
@@ -119,5 +131,40 @@ public class objSalon {
         this.espacios.remove(indx);
     }
     
+    //falta la lista de los campos que no tienen obstaculos ni suciedad ni han sido limpiados
+    
+    public void saveDirty(){
+           listEsDr = espacios.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setListEsDir(listEsDr);   
+                       String cantess = String.valueOf(espacios.size());                         
+                       data.setCantClean(cantess);
+    }
+    
+    public void saveCleaned(){
+           listEsCleaned = limpiados.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setListEsCle(listEsCleaned); 
+                        
+                        //data.setListEsCle("test");
+                        
+    }
+    public void saveRecor(){
+           listEsRecord = recorridos.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setCantPosRec(String.valueOf(listEsRecord)); 
+                        
+                        //data.setListEsCle("test");
+                        
+    }
+    
+    public void saveObs(){
+           listObs = obstaculos.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setListEsObs(listObs);       
+    }
+    
+    public void setNivelPolvo(float per) {
+        this.percentaje = per;
+        data.setPorEspDir(String.valueOf(percentaje));
+    }
     
 }
+
+
