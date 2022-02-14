@@ -6,6 +6,7 @@ package Objetos;
 
 import Negociacion.Imagenes;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,6 +16,10 @@ import javax.swing.JPanel;
  * @author Cris
  */
 public class objSalon {
+    private String listEsDr = "";
+    private String listEsCleaned = "";
+    private String listObs = "";
+    private Datos.Archivos data = new Datos.Archivos();    
     private static int tamSalon = 8;
     private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
     public static ArrayList<Integer> espacios = new ArrayList();
@@ -65,10 +70,12 @@ public class objSalon {
             
             case "Dust":
                 salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/dust.png"), 50, 50));
+                //salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("dust.png"), 50, 50));
                 break;
                 
             case "Object":
                 salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("E:/Codigo U/Programacion 2/LP2.1-Robot/obstacle.png"), 50, 50));
+                //salon[x][y].setIcon(controlIMG.getScaledImage(new ImageIcon("obstacle.png"), 50, 50));
                 break;
         }
         
@@ -116,5 +123,25 @@ public class objSalon {
         this.espacios.remove(indx);
     }
     
+    //falta la lista de los campos que no tienen obstaculos ni suciedad ni han sido limpiados
+    
+    public void saveDirty(){
+           listEsDr = espacios.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setListEsDir(listEsDr);   
+                       String cantess = String.valueOf(espacios.size());                         
+                       data.setCantClean(cantess);
+    }
+    
+    public void saveCleaned(){
+           listEsCleaned = limpiados.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        //data.setListEsCle(listEsCleaned); 
+                        data.setListEsCle("test");
+                        
+    }
+    
+    public void saveObs(){
+           listObs = obstaculos.stream().map(Object::toString).collect(Collectors.joining(", "));
+                        data.setListEsObs(listObs);       
+    }
     
 }

@@ -11,6 +11,8 @@ import Negociacion.Imagenes;
 import Negociacion.Obstaculos;
 import Negociacion.Polvo;
 import Negociacion.sonido;
+import Objetos.objSalon;
+import Datos.Archivos;
 
 
 /**
@@ -27,6 +29,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
     private Polvo dts = new Polvo();
     private Obstaculos objs = new Obstaculos();
     private sonido snd = new sonido();
+    private objSalon SC = new objSalon();
+    private Archivos save = new Archivos();
     /**
      * Creates new form MainBoard
      */
@@ -43,13 +47,14 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable {
         jPanel1.add(Robot, 1);
 
         this.seguidor = new Thread(this);
-        
-
-
+        SC.saveDirty();
+        SC.saveObs();
+        SC.saveCleaned();
+        save.guardarDatos();
     }
     
     public static void Empezar() {
-       seguidor.start();
+       seguidor.start();       
     }
 
     public void Actualizar(Thread ct) {
