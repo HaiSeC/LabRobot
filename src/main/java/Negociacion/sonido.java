@@ -37,6 +37,17 @@ public class sonido{
        } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
          System.out.println("Error al reproducir el sonido.");
        }
-}
+    }   
+       
+    public void ReproducirSonidoyay(){
+       try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("yay.wav").getAbsoluteFile());
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+       } catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+         System.out.println("Error al reproducir el sonido.");
+       }
+    }
     
 }

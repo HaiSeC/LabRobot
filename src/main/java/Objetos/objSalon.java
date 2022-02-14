@@ -31,7 +31,6 @@ public class objSalon {
     public static ArrayList<int[]> limpiados = new ArrayList<>();
     public static ArrayList<int[]> recorridos = new ArrayList<>();
     public static float percentaje;
-    private sonido sound = new sonido();
     private Imagenes controlIMG = new Imagenes();
     
     

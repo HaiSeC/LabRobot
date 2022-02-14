@@ -43,7 +43,7 @@ public class Generador {
             JLabel label = SALON.getSalon()[i][j];
             int x = label.getX();
             int y = label.getY();
-            if ((botX > x-25 && botX < x+25) && (botY > y-55 && botY < y)) {
+            if ((botX > x-26 && botX < x+26) && (botY > y-55 && botY < y)) {
                 boolean decis;
                 int[] JLi = {i,j};
                 if(direc == antDirec) {
@@ -81,7 +81,7 @@ public boolean comprobar(JLabel bot, String statement) { //comprueba si el bot p
                JLabel label = list3[indice[0]][indice[1]];
                int y = label.getY();
                int x = label.getX();
-               if ((botX > x-25 && botX < x+25) && (botY > y-55 && botY < y)) {
+               if ((botX > x-26 && botX < x+26) && (botY > y-55 && botY < y)) {
                    if (statement.equals("Polvo")) {
                    System.out.println(SALON.getPercentaje());
                    SALON.setLimpio(indice);
@@ -114,7 +114,9 @@ public int CheckPolvo() {
     return per;
 }
    
-    
+    public int getObstaculosL() {
+        return SALON.getObstaculos().size();
+    }
     
 
 }
