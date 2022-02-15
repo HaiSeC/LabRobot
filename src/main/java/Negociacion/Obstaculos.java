@@ -6,7 +6,6 @@ package Negociacion;
 
 import Objetos.objObstaculos;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -28,28 +27,4 @@ public class Obstaculos {
             return objeto.getObstaculos();
             
         }
-    /*
-            public boolean comprobarOBJ(JLabel bot) { //comprueba si el bot pasa por el polvo
-        ArrayList<Integer> list1;
-            
-        JLabel[][] list3;
-        list1 = objeto.getObstaculos();
-        list3 = objeto.getSalon();
-        for (int i = 0; i < list1.size(); i++) {
-               int[] indice = objeto.getIndex(list1.get(i));
-               JLabel label = list3[indice[0]][indice[1]];
-               int y = label.getY();
-               int x = label.getX();
-               int botX = bot.getX();
-               int botY = bot.getY(); //System.out.println((botX > x-10 && botX < x+10) && (botY > y-40 && botY < y));
-               if ((botX > x-25 && botX < x+25) && (botY > y-50 && botY < y)) {
-                   System.out.println("has chocado");
-                   sound.ReproducirSonidono();
-                   return true;
-                   
-            }
-            
-        }       
-        return false;       
-    }*/
 }

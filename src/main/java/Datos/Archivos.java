@@ -92,7 +92,6 @@ public class Archivos {
                         "\nPorcentaje de Espacios Sucios en el salón: " + porEspDir + "\n");
             }
         } catch (IOException e) {
-            //JOptionPane.showMessageDialog(null, "Error al guardar datos!");
             JOptionPane.showMessageDialog(null, "Error al guardar datos!", "Error", 0);
         }
     }

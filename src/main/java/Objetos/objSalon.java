@@ -5,7 +5,6 @@
 package Objetos;
 
 import Negociacion.Imagenes;
-import Negociacion.sonido;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -154,9 +153,8 @@ public class objSalon {
             newArrr[i] = Arrays.toString(limpiados.get(i));
             
         }
-        listEsCleaned = Arrays.toString(limpiados.toArray()) /*limpiados.stream().map(Object::toString).collect(Collectors.joining(", "))*/;
+        listEsCleaned = Arrays.toString(limpiados.toArray());
                         data.setListEsCle(Arrays.toString(newArrr)); 
- ; 
                         
     }
     public void saveRecor(){
@@ -194,8 +192,7 @@ public class objSalon {
     }
     
     public void savePer(){
-           perString = String.valueOf(percentaje);
-                        //data.setPorEspDir(perString);       
+           perString = String.valueOf(percentaje);      
     }
     
     public void restart(){

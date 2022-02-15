@@ -5,7 +5,6 @@
 package Negociacion;
 
 import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**

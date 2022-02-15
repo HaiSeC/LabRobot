@@ -113,7 +113,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            salon.setVisible(true);
+           salon.setVisible(true);
             dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -148,6 +148,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPrincipal().setVisible(true);
+                
             }
         });
     }

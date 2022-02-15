@@ -10,7 +10,6 @@ import Objetos.objSalon;
 import static Objetos.objSalon.espacios;
 import static Objetos.objSalon.obstaculos;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -52,7 +51,6 @@ public class Generador {
                     decis = true;
                 }
                 if(decis) {
-                    //System.out.println("Matrix: bot:" + bot.getY() + " dust: " + y);
                     SALON.setLugar(JLi);
                     SALON.saveRecor();                   
                 }

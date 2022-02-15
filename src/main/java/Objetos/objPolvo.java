@@ -5,11 +5,8 @@
 package Objetos;
 
 import Negociacion.Imagenes;
-import Presentacion.SalonPrincipal;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -34,7 +31,6 @@ public class objPolvo extends objSalon {
         int rand = 0;
         while(newNum == true) {
             rand = new Random().nextInt(max - min) + min;
-            //rand = (int) ((Math.random() * ((getTamSalon()*getTamSalon()) - 3)) + 2);
             newNum = comprobarARR(rand, array);
         }
             setEspacios(i, rand);

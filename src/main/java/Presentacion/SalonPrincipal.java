@@ -30,7 +30,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     private String MovPers = " ";
     private String MovPers2 = " ";
     private String MovPers3 = " ";
-    JLabel Robot;
+    JLabel Robot;    
     private Imagenes cnts = new Imagenes();
     private Generador gen = new Generador();
     private Polvo dts = new Polvo();
@@ -50,9 +50,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     
     public final void Empezar() {
         DefList();
-        BtnAD.setEnabled(false);
-        BtnRestart.setEnabled(false);
-        BtnSaveData.setEnabled(false);
         DefList();
         gen.generarjuego(PlnGame);
         Robot = new JLabel();
@@ -76,13 +73,9 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         ListAnt.setModel(save.AddModel);
         SC.saveCleaned();
         SC.setPerce(JLprc.getText());
-        BtnRestart.setEnabled(true);
-        //BtnSaveData.setEnabled(true);
-        BtnAD.setEnabled(true);
-        juego = false;
-        snd.ReproducirSonidoyay();
+        juego = false;      
         PlnGame.removeAll();
-        JOptionPane.showMessageDialog(null, "¡El salon esta limpio!");
+        
     }
 
     public void Actualizar() {
@@ -99,7 +92,10 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
             }
             
             if(porcentaje == 0) {
+                JOptionPane.showMessageDialog(null, "¡El salon esta limpio!");
+                snd.ReproducirSonidoyay();
                 Finalizar();
+                
             } 
             
         }
@@ -254,12 +250,11 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         BtnSaveData = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListAnt = new javax.swing.JList<>();
-        BtnRestart = new javax.swing.JButton();
         BtnAD = new javax.swing.JButton();
 
         ActualData.setTitle("Datos Actuales");
-        ActualData.setPreferredSize(new java.awt.Dimension(900, 220));
-        ActualData.setSize(new java.awt.Dimension(900, 220));
+        ActualData.setPreferredSize(new java.awt.Dimension(900, 300));
+        ActualData.setSize(new java.awt.Dimension(900, 300));
 
         jLabel1.setText("Fecha:");
 
@@ -312,7 +307,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                     .addComponent(LblCER)
                     .addComponent(LblCEL)
                     .addComponent(LblPES))
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(663, Short.MAX_VALUE))
         );
         ActualDataLayout.setVerticalGroup(
             ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +340,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                 .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(LblPES))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -370,13 +365,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         ListAnt.setName(""); // NOI18N
         jScrollPane1.setViewportView(ListAnt);
 
-        BtnRestart.setText("Reiniciar");
-        BtnRestart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRestartActionPerformed(evt);
-            }
-        });
-
         BtnAD.setText("Datos Actuales");
         BtnAD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,17 +388,15 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                             .addComponent(BtnSaveData))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(BtnAD)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(BtnAD))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -427,12 +413,10 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                             .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblObss, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnAD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(BtnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnAD, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PlnGame, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -450,8 +434,10 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         LblCEL.setText(LD.getCantClean());
         LblES.setText(LD.getListEsDir());       
         LblEO.setText(LD.getListEsObs()); 
-        LblCER.setText(LD.getCantPosRec());                   
+        LblCER.setText(LD.getCantPosRec());
+        SC.setPerce(JLprc.getText());
         LblPES.setText(SC.getPerce());
+        
     }     
     
     private void BtnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveDataActionPerformed
@@ -466,14 +452,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         requestFocus(); 
     }//GEN-LAST:event_BtnSaveDataActionPerformed
 
-    private void BtnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRestartActionPerformed
-        SC.restart();
-        PlnGame.repaint();
-        juego = true;       
-        Empezar();
-    }//GEN-LAST:event_BtnRestartActionPerformed
-
     private void BtnADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnADActionPerformed
+        requestFocus();
         LoadList();
         ActualData.setVisible(true);
         ActualData.setLocationRelativeTo(null);
@@ -519,7 +499,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame ActualData;
     private javax.swing.JButton BtnAD;
-    private javax.swing.JButton BtnRestart;
     private javax.swing.JButton BtnSaveData;
     private java.awt.Label JLobs;
     private java.awt.Label JLprc;
