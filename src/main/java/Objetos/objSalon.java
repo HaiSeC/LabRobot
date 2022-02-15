@@ -20,9 +20,10 @@ import javax.swing.JPanel;
 public class objSalon {
     private String listEsDr = "";
     private String listEsCleaned = "";
-    private String listObs = "";
+    private static String listObs = "";
     private String listEsRecord = "";
     private String perString = "";
+    private static String perce = "";
     private Datos.Archivos data = new Datos.Archivos();    
     private static int tamSalon = 8;
     private static JLabel[][] salon = new JLabel[tamSalon][tamSalon]; 
@@ -94,8 +95,14 @@ public class objSalon {
         return tamSalon;
     }
 
-    
-    
+    public static void setPerce(String perce) {
+        objSalon.perce = perce;
+    }
+
+    public static String getPerce() {
+        return perce;
+    }
+  
     public JLabel[][] getSalon() { //Obtiene la matriz del salon
         return salon;
     }
@@ -136,33 +143,50 @@ public class objSalon {
     
     public void saveDirty(){
            listEsDr = espacios.stream().map(Object::toString).collect(Collectors.joining(", "));
-                        data.setListEsDir(listEsDr);   
+                       data.setListEsDir(listEsDr);   
                        String cantess = String.valueOf(espacios.size());                         
                        data.setCantClean(cantess);
     }
     
     public void saveCleaned(){
            listEsCleaned = limpiados.stream().map(Object::toString).collect(Collectors.joining(", "));
-                        data.setListEsCle(listEsCleaned); 
-                        
-                        //data.setListEsCle("test");
+                        String cantesp = String.valueOf(limpiados.size());    
+                        data.setListEsCle(cantesp); 
                         
     }
     public void saveRecor(){
            listEsRecord = recorridos.stream().map(Object::toString).collect(Collectors.joining(", "));
-                        data.setCantPosRec(String.valueOf(listEsRecord)); 
-                        
-                        //data.setListEsCle("test");
-                        
+                        String cantre = String.valueOf(recorridos.size());                         
+                       data.setCantPosRec(cantre);
+                      
     }
     
     public void saveObs(){
            listObs = obstaculos.stream().map(Object::toString).collect(Collectors.joining(", "));
                         data.setListEsObs(listObs);       
     }
+
+    public String getListObs() {
+        return listObs;
+    }
+    
+    public void savedata(){
+        saveObs();
+        saveCleaned();
+        saveRecor();
+        data.setPorEspDir(perce);   
+    }
+    
     public void savePer(){
            perString = String.valueOf(percentaje);
-                        data.setPorEspDir(perString);       
+                        //data.setPorEspDir(perString);       
+    }
+    
+    public void restart(){
+        recorridos.clear();
+        limpiados.clear();
+        obstaculos.clear();
+        espacios.clear();
     }
     
     public static void setNivelPolvo(int per) {
@@ -182,7 +206,6 @@ public class objSalon {
             int[] j = recorridos.get(i);
            
             if(j[0] == valor[0] && j[1] == valor[1]) {
-                //System.out.println(Arrays.toString(j) + recorridos.size());
                 return false;
             }
         }

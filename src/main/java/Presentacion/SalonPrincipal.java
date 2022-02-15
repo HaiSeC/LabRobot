@@ -15,6 +15,7 @@ import Objetos.objSalon;
 import Datos.Archivos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -37,31 +38,30 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     private sonido snd = new sonido();
     private objSalon SC = new objSalon();
     private Archivos save = new Archivos();
+    private Archivos LD = new Archivos();
     private static boolean juego = true;
     /**
      * Creates new form MainBoard
      */
     public SalonPrincipal() {
         initComponents();
-        gen.generarjuego(jPanel1);
+        Empezar();
+    }
+    
+    public final void Empezar() {    
+        BtnAD.setEnabled(false);
+        BtnRestart.setEnabled(false);
+        BtnSaveData.setEnabled(false);
+        gen.generarjuego(PlnGame);
         Robot = new JLabel();
         Robot.setBounds(-5, -20, 100,100);
         Robot.setIcon(cnts.getScaledImage(new ImageIcon(".\\1.png"), 50, 50));
-        jPanel1.add(Robot, 1);
+        PlnGame.add(Robot, 1);
         setFocusable(true);
         requestFocus();
         addKeyListener(this);
-        Empezar();
+        JLobs.setText(String.valueOf(gen.getObstaculosL()));
         SC.saveDirty();
-        SC.saveObs();
-        SC.saveCleaned();
-        save.guardarDatos();
-        JLobs.setText(String.valueOf(gen.getObstaculosL()));;
-    }
-    
-
-    
-    public void Empezar() {
         if(juego) {
           seguidor = new Thread(this);
           seguidor.start(); 
@@ -69,10 +69,17 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
              
     }
     
-    public void Finalizar() {
+    public void Finalizar() {       
+        save.mLis();
+        ListAnt.setModel(save.AddModel);
+        SC.saveCleaned();
+        SC.setPerce(JLprc.getText());
+        BtnRestart.setEnabled(true);
+        BtnSaveData.setEnabled(true);
+        BtnAD.setEnabled(true);
         juego = false;
         snd.ReproducirSonidoyay();
-        jPanel1.removeAll();
+        PlnGame.removeAll();
         JOptionPane.showMessageDialog(null, "¡El salon esta limpio!");
     }
 
@@ -99,6 +106,12 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
             resetMovement();
         }  
     }
+    
+    public DefaultListModel DefList(){
+        DefaultListModel DefModel = new DefaultListModel();
+        ListAnt.setModel(DefModel);
+        return DefModel;
+    }  
     
     public void setMovement(){
         switch (Mov) {
@@ -206,7 +219,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                     break;
 
              }
-        //Robot.setLocation(Robot.getX(), Robot.getY());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -217,38 +229,158 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        JLobs = new java.awt.Label();
+        ActualData = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        LblFecha = new javax.swing.JLabel();
+        LblEL = new javax.swing.JLabel();
+        LblES = new javax.swing.JLabel();
+        LblEO = new javax.swing.JLabel();
+        LblCER = new javax.swing.JLabel();
+        LblCEL = new javax.swing.JLabel();
+        LblPES = new javax.swing.JLabel();
+        PlnGame = new javax.swing.JPanel();
+        JLobs = new java.awt.Label();
+        LblSucs = new javax.swing.JLabel();
+        LblObss = new javax.swing.JLabel();
         JLprc = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
+        BtnSaveData = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListAnt = new javax.swing.JList<>();
+        BtnRestart = new javax.swing.JButton();
+        BtnAD = new javax.swing.JButton();
+
+        ActualData.setTitle("Datos Actuales");
+        ActualData.setPreferredSize(new java.awt.Dimension(900, 220));
+        ActualData.setSize(new java.awt.Dimension(900, 220));
+
+        jLabel1.setText("Fecha:");
+
+        jLabel2.setText("Espacios Limpiados:");
+
+        jLabel3.setText("Lista de Espacios Sucios:");
+
+        jLabel4.setText("Espacios con Obstaculos:");
+
+        jLabel5.setText("Cant. Espacio Recorridos:");
+
+        jLabel6.setText("Cant. Espacios Limpios:");
+
+        jLabel7.setText("Porcentaje de Espacios Sucios:");
+
+        LblFecha.setText("jLabel8");
+
+        LblEL.setText("jLabel9");
+
+        LblES.setText("jLabel10");
+
+        LblEO.setText("jLabel11");
+
+        LblCER.setText("jLabel12");
+
+        LblCEL.setText("jLabel13");
+
+        LblPES.setText("jLabel14");
+
+        javax.swing.GroupLayout ActualDataLayout = new javax.swing.GroupLayout(ActualData.getContentPane());
+        ActualData.getContentPane().setLayout(ActualDataLayout);
+        ActualDataLayout.setHorizontalGroup(
+            ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualDataLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LblFecha)
+                    .addComponent(LblEL)
+                    .addComponent(LblES)
+                    .addComponent(LblEO)
+                    .addComponent(LblCER)
+                    .addComponent(LblCEL)
+                    .addComponent(LblPES))
+                .addContainerGap(463, Short.MAX_VALUE))
+        );
+        ActualDataLayout.setVerticalGroup(
+            ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualDataLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(LblFecha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(LblEL))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(LblES))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(LblEO))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(LblCER))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(LblCEL))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(LblPES))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-            }
-        });
+        setTitle("Aspiradora Loca");
+        setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setLayout(null);
+        PlnGame.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PlnGame.setLayout(null);
 
-        jLabel1.setText("Suciedad:");
+        LblSucs.setText("Suciedad:");
 
-        jLabel2.setText("Obstaculos:");
+        LblObss.setText("Obstaculos:");
 
-        jButton1.setText("Guardar Datos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSaveData.setText("Guardar Datos");
+        BtnSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnSaveDataActionPerformed(evt);
             }
         });
 
-        jList1.setEnabled(false);
-        jScrollPane1.setViewportView(jList1);
+        ListAnt.setEnabled(false);
+        ListAnt.setName(""); // NOI18N
+        jScrollPane1.setViewportView(ListAnt);
+
+        BtnRestart.setText("Reiniciar");
+        BtnRestart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRestartActionPerformed(evt);
+            }
+        });
+
+        BtnAD.setText("Datos Actuales");
+        BtnAD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnADActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,76 +388,88 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(PlnGame, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblSucs, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblObss, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSaveData))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(BtnAD)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblSucs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLprc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblObss, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnAD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PlnGame, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-       /* if(!juego) {
-            Empezar();
-            juego = true;
-        }               
-        switch (evt.getKeyCode()) {
-                
-                case 37:
-                    Mov = "Izquierda"; 
-                    break;
-                case 38:
-                    Mov = "Arriba";
-                    break;
-                case 39:
-                    Mov = "Derecha";
-                    break;
-                case 40:
-                    Mov = "Abajo";
-                    break;
-            }*/// TODO add your handling code here:        // TODO add your handling code here:
-    }//GEN-LAST:event_formKeyPressed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void LoadList(){
+        SC.saveObs();
+        SC.saveCleaned();
+        LblFecha.setText(LD.getFecha().toLocaleString());
+        LblEL.setText(LD.getListEsCle());
+        LblCEL.setText(LD.getCantClean());
+        LblES.setText(LD.getListEsDir());       
+        LblEO.setText(LD.getListEsObs()); 
+        LblCER.setText(LD.getCantPosRec());                   
+        LblPES.setText(SC.getPerce());
+    }     
+    
+    private void BtnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveDataActionPerformed
         snd.ReproducirSonidono();
-        //setFocusable(true);
-        requestFocus();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        SC.savedata();
+        save.guardarDatos();
+        requestFocus(); 
+    }//GEN-LAST:event_BtnSaveDataActionPerformed
+
+    private void BtnRestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRestartActionPerformed
+        SC.restart();
+        PlnGame.repaint();
+        juego = true;       
+        Empezar();
+    }//GEN-LAST:event_BtnRestartActionPerformed
+
+    private void BtnADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnADActionPerformed
+        LoadList();
+        ActualData.setVisible(true);
+        ActualData.setLocationRelativeTo(null);
+    }//GEN-LAST:event_BtnADActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,13 +509,30 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame ActualData;
+    private javax.swing.JButton BtnAD;
+    private javax.swing.JButton BtnRestart;
+    private javax.swing.JButton BtnSaveData;
     private java.awt.Label JLobs;
     private java.awt.Label JLprc;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel LblCEL;
+    private javax.swing.JLabel LblCER;
+    private javax.swing.JLabel LblEL;
+    private javax.swing.JLabel LblEO;
+    private javax.swing.JLabel LblES;
+    private javax.swing.JLabel LblFecha;
+    private javax.swing.JLabel LblObss;
+    private javax.swing.JLabel LblPES;
+    private javax.swing.JLabel LblSucs;
+    private javax.swing.JList<String> ListAnt;
+    private javax.swing.JPanel PlnGame;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

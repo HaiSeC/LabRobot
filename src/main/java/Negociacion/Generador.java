@@ -104,7 +104,7 @@ public int CheckPolvo() {
     int lenght = SALON.getEspacios().size();
     int per = 0; 
     if (lenght != 0) {
-        per = (lenght*100)/((SALON.getTamSalon()*SALON.getTamSalon())/2);
+        per = (lenght*100)/(SALON.getTamSalon()*SALON.getTamSalon());
         SALON.setNivelPolvo(per);
         SALON.savePer();
     } else {
