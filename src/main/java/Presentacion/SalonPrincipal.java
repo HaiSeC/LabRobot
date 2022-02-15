@@ -48,10 +48,11 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         Empezar();
     }
     
-    public final void Empezar() {    
+    public final void Empezar() {
+        DefList();
         BtnAD.setEnabled(false);
         BtnRestart.setEnabled(false);
-        //BtnSaveData.setEnabled(false);
+        BtnSaveData.setEnabled(false);
         DefList();
         gen.generarjuego(PlnGame);
         Robot = new JLabel();
@@ -257,6 +258,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         BtnAD = new javax.swing.JButton();
 
         ActualData.setTitle("Datos Actuales");
+        ActualData.setPreferredSize(new java.awt.Dimension(900, 220));
         ActualData.setSize(new java.awt.Dimension(900, 220));
 
         jLabel1.setText("Fecha:");

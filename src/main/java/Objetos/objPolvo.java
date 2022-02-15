@@ -44,6 +44,7 @@ public class objPolvo extends objSalon {
     public void setDust(JPanel panel){ //coloca el polvo en la matriz
         for (int i = 0; i < getEspacios().size(); i++) {
             int[] indice = getIndex(getEspacios().get(i));
+            savePolvox(indice);
             setLabel(indice[0], indice[1], panel, "Dust");
         }
     }

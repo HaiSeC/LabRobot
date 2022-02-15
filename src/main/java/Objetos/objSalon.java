@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * @author Cris
  */
 public class objSalon {
-    private String listEsDr = "";
+    private static String listEsDr = "";
     private String listEsCleaned = "";
     private static String listObs = "";
     private String listEsRecord = "";
@@ -30,6 +30,7 @@ public class objSalon {
     public static ArrayList<Integer> espacios = new ArrayList();
     public static ArrayList<Integer> obstaculos = new ArrayList();
     public static ArrayList<int[]> limpiados = new ArrayList<>();
+    public static ArrayList<int[]> objli = new ArrayList<>();
     public static ArrayList<int[]> recorridos = new ArrayList<>();
     public static float percentaje;
     private Imagenes controlIMG = new Imagenes();
@@ -142,11 +143,10 @@ public class objSalon {
     //falta la lista de los campos que no tienen obstaculos ni suciedad ni han sido limpiados
     
     public void saveDirty(){
-           listEsDr = espacios.stream().map(Object::toString).collect(Collectors.joining(", "));
-                       data.setListEsDir(listEsDr);   
-                       String cantess = String.valueOf(espacios.size());                         
-                       data.setCantClean(cantess);
-    }
+        String cantes = String.valueOf(espacios.size());
+            data.setListEsDir(listEsDr);
+            data.setCantClean(cantes);
+    }       
     
     public void saveCleaned(){
         String[] newArrr = new String[limpiados.size()];
@@ -167,8 +167,19 @@ public class objSalon {
     }
     
     public void saveObs(){
-           listObs = obstaculos.stream().map(Object::toString).collect(Collectors.joining(", "));
                         data.setListEsObs(listObs);       
+    }
+    
+    public void saveObx(int[] Array){               
+           listObs = listObs + Arrays.toString(Array) + ",";
+           
+                               
+    }
+    
+    public void savePolvox(int[] Array){               
+           listEsDr = listEsDr + Arrays.toString(Array) + ",";
+                        
+                        
     }
 
     public String getListObs() {
@@ -204,6 +215,10 @@ public class objSalon {
 
     public static float getPercentaje() {
         return percentaje;
+    }
+    
+    public void Oblis(){
+        
     }
     
     public boolean comprobarExis(int[] valor) {
