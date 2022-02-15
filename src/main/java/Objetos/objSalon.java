@@ -149,9 +149,14 @@ public class objSalon {
     }
     
     public void saveCleaned(){
-           listEsCleaned = limpiados.stream().map(Object::toString).collect(Collectors.joining(", "));
-                        String cantesp = String.valueOf(limpiados.size());    
-                        data.setListEsCle(cantesp); 
+        String[] newArrr = new String[limpiados.size()];
+        for (int i = 0; i < limpiados.size(); i++) {
+            newArrr[i] = Arrays.toString(limpiados.get(i));
+            
+        }
+        listEsCleaned = Arrays.toString(limpiados.toArray()) /*limpiados.stream().map(Object::toString).collect(Collectors.joining(", "))*/;
+                        data.setListEsCle(Arrays.toString(newArrr)); 
+ ; 
                         
     }
     public void saveRecor(){

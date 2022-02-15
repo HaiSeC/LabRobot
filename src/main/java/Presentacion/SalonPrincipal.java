@@ -51,7 +51,8 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     public final void Empezar() {    
         BtnAD.setEnabled(false);
         BtnRestart.setEnabled(false);
-        BtnSaveData.setEnabled(false);
+        //BtnSaveData.setEnabled(false);
+        DefList();
         gen.generarjuego(PlnGame);
         Robot = new JLabel();
         Robot.setBounds(-5, -20, 100,100);
@@ -75,7 +76,7 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         SC.saveCleaned();
         SC.setPerce(JLprc.getText());
         BtnRestart.setEnabled(true);
-        BtnSaveData.setEnabled(true);
+        //BtnSaveData.setEnabled(true);
         BtnAD.setEnabled(true);
         juego = false;
         snd.ReproducirSonidoyay();
@@ -256,7 +257,6 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
         BtnAD = new javax.swing.JButton();
 
         ActualData.setTitle("Datos Actuales");
-        ActualData.setPreferredSize(new java.awt.Dimension(900, 220));
         ActualData.setSize(new java.awt.Dimension(900, 220));
 
         jLabel1.setText("Fecha:");
@@ -425,10 +425,11 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
                             .addComponent(JLobs, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LblObss, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnAD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnAD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(BtnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PlnGame, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -452,6 +453,11 @@ public class SalonPrincipal extends javax.swing.JFrame implements Runnable, KeyL
     }     
     
     private void BtnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveDataActionPerformed
+        DefList();
+        SC.saveCleaned();
+        SC.setPerce(JLprc.getText());
+        save.mLis();
+        ListAnt.setModel(save.AddModel);
         snd.ReproducirSonidono();
         SC.savedata();
         save.guardarDatos();

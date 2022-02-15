@@ -53,6 +53,7 @@ public class objObstaculos extends objSalon{
         public void setObjects(JPanel panel) {
             for (int i = 0; i < getObstaculos().size(); i++) {
                 int[] indice = getIndex(getObstaculos().get(i));
+                
                 setLabel(indice[0], indice[1], panel, "Object");
             }
         }
